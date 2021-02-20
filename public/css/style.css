@@ -1,0 +1,29 @@
+.koko-homma {
+    background-color: violet;
+    padding: 8%;
+}
+body {
+    background-color: black;
+    padding: 2%;
+    text-align: center;
+}
+
+input {
+    font-size: 30px;
+}
+
+h1 {
+    font-size: 50px;
+    font-family: monospace;
+}
+
+button {
+    padding: 5px;
+    padding-top: 14px;
+}
+
+#response-div {
+    font-size: 30px;
+    font-family: monospace;
+    
+}

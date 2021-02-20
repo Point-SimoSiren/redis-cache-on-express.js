@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<head>
+    <title>GIT search | redis cache express.js</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="koko-homma">
+        <h1>Hae GIT repojen määrä</h1>
+
+        <form onsubmit="hae(event)">
+            <input type="text" name="user" pattern="[^><]+" maxlength="50" placeholder="anna github käyttäjän nimi" />
+            <input type="submit" />
+        </form>
+
+        <div class="koko-homma" id="response-div"></div>
+    </div>
+
+    <script>
+        function hae(event) {
+            event.preventDefault()
+            const user = event.target.user.value
+
+            fetch(`http://localhost:5000/repos/${user}`)
+                .then(response => response.json())
+                .then(js =>
+                    setTimeout(() => {
+                        if (js) {
+                            document.getElementById("response-div").innerHTML = js.message
+                        }
+                        else {
+                            document.getElementById("response-div").innerHTML = `<h2>error</h2>`
+                        }
+                    }, 300))
+        }
+    </script>
+</body>
